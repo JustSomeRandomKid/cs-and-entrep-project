@@ -6,20 +6,19 @@
 <style>
 .mySlides {display:none;}
 </style>
-<body>
-
-<h2 class="w3-center">Slideshow</h2>
-
-<div class="container">
-  <img class="mySlides" src="https://dl.dropbox.com/scl/fi/t4q4xei03t6zd19z5ende/pic2.png?rlkey=46jw1c6a7tgrczo7s6q8rm349&st=ika77f1k&dl=0" style="width:100%">
-  <img class="mySlides" src="https://dl.dropbox.com/scl/fi/jstkkvfoc8tl1vmhj0bqr/pic1.png?rlkey=31n9pyrwckyxdcq4jrcu7trgc&st=zbts9470&dl=0" style="width:100%">
-  <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-  <img class="mySlides" src="img_forest.jpg" style="width:100%">
-
+<body id="body">
+  <div class="container" id="container">
+      <img class="mySlides" src="">
+      <img class="mySlides" src="https://dl.dropbox.com/scl/fi/38jlauya46eoiqccha3hp/Screenshot-2024-07-28-150507.png?rlkey=u58m24p4omu3rxpq1fh5heley&st=3rouxfj4&dl=0">
+      <img class="mySlides" src="https://dl.dropbox.com/scl/fi/8kzs9scfg556mzhigg71s/057cbaf4-ee51-40c0-b612-c345a05b4831.jpg?rlkey=ofu2h9qlkjbtc4g1ssy2zdbbl&st=fewo5dme&dl=0">
+      <img class="mySlides" src="">
+      <h3 id="homeText">Cleaner ages in 22 pages.</h3>
+      <h2 id="pageDescription"></h2>
+  </div>
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
 
+</body>
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
@@ -30,15 +29,42 @@ function plusDivs(n) {
 
 function showDivs(n) {
   var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
+  const descriptions = ['first page','second page','third page','forth page'];
+  var slides = document.getElementsByClassName("mySlides");
+  var pageDescription = document.getElementById("pageDescription");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
   }
-  x[slideIndex-1].style.display = "block";  
+  pageDescription.innerHTML=descriptions[slideIndex-1];
+  slides[slideIndex-1].style.display = "block";  
 }
 </script>
+<style>
+.mySlides {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+#homeText{
+  position: fixed;
+  right: 5%;
+  top: 2%;
+  z-index: 1;
+  color: rgb(64, 199, 154);
+}
+#pageDescription{
+  position: fixed;
+  left: 2%;
+  bottom: 2%;
+  z-index: 1;
+}
+.container{
+  z-index: -1;
 
+}
+
+</style>
 </body>
 </html>
