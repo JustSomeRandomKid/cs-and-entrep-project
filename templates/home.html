@@ -52,8 +52,19 @@
     width: 100vw;
     height: 100vh; 
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    flex-direction: row;
+    justify-content: center;
+    }
+    #bookText{
+      height:40%;
+      width: 30%;
+      margin-top: 10%;
+      margin-right: 10%;
+      border-color: black;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 30px;
+
     }
     .button-container {
       display: flex;
@@ -96,6 +107,7 @@
       font-family: "Comic Sans MS", cursive, sans-serif;
       color: rgb(255, 255, 255);
       text-shadow: 4px 4px 8px #000000;
+      width:60%;
     }
     #infoPic {
       height: 300px;
@@ -227,13 +239,21 @@
   <div class="section" id="ourbook">
     <div id="ourbook">
       <h2>Our Book: </h2>
+      <div id='pics'>
 
-      <form action="/" method="post">
-        <input type="submit" value="book" name="Add to cart">
-      </form>
-      <img id="bookPic" src="https://www.thecuriousreader.in/wp-content/uploads/2018/06/Save-the-enivironment-Feature-imageArtboard-6.png" alt="About Us">
-      <img id="bookPic" src="https://www.treehugger.com/thmb/Y5hxAMhw1g-aYrUytU0pkQu1HSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/education-concept-book-and-tree-1410019554-5caf8d4cfe47411facf9156a65688ffd.jpg" alt="About Us">
-      <p class="section"> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
+        <img id="bookPic" src="https://www.thecuriousreader.in/wp-content/uploads/2018/06/Save-the-enivironment-Feature-imageArtboard-6.png" alt="About Us">
+        <img id="bookPic" src="https://www.treehugger.com/thmb/Y5hxAMhw1g-aYrUytU0pkQu1HSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/education-concept-book-and-tree-1410019554-5caf8d4cfe47411facf9156a65688ffd.jpg" alt="About Us">
+
+      </div>
+      <div id='bookText'>
+
+        <p> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
+
+        <form action="/" method="post">
+          <input type="submit" value="book" name="Add to cart">
+        </form>
+
+      </div>
     </div>
   </div>
 
