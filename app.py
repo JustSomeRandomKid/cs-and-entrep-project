@@ -19,21 +19,40 @@ app = Flask(__name__)
 app.config['SECRET_KEY']="CS forever"
 
 db =firebase.database()
-
+global result
+result=""
 @app.route('/home',methods=['GET','POST'])
 @app.route('/',methods=['GET','POST'])
 def home():
+    global result
     if request.method=='GET':
       try:
         email=login_session['user']['email']
       except:
         email='Guest'
-      return render_template('home.html',email = email)
-    booksOwned=db.child('carts').child(login_session['user']['localId']).child('book').get().val()
-    db.child('carts').child(login_session['user']['localId']).child('book').set(booksOwned+1)
+      if result!="":
+        answer = result
+        result = ""
+      else:
+         answer=""
+      return render_template('home.html',email = email, response=answer)
+    print(login_session['user']['localId'])
+    if login_session['user']['localId'] != None:
+      booksOwned=db.child('carts').child(login_session['user']['localId']).child('book').get().val()
+      print(db.child('carts').child(login_session['user']['localId']).get().val())
+      db.child('carts').child(login_session['user']['localId']).update({"book":booksOwned+1})
+      result = "Added to cart"
+    else:
+      result = "Can not add to cart"
     return redirect(url_for('home'))
-        
 
+@app.route('/cart')
+def cart():
+  if login_session['user']['localId']!=None:
+    items=db.child('carts').child(login_session['user']['localId']).get().val()
+  else:
+    items=""
+  return render_template('cart.html',items=items)        
 
 
 @app.route('/signIn',methods=['GET','POST'])
