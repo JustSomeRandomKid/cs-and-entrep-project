@@ -34,7 +34,7 @@
       align-items: center;
       justify-content: center;
       width: 100vw;
-      background-color: rgba(7, 128, 134, 0.568);
+      background-color: rgba(17, 146, 75, 0.507);
       padding: 40px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
@@ -48,23 +48,82 @@
       margin-bottom: 20px;
     }
     #ourbook {
-    background-color: rgba(7, 128, 134, 0.512);
+    background-color: rgba(5, 164, 79, 0.231);
     width: 100vw;
     height: 100vh; 
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     }
-    #bookText{
-      height:40%;
-      width: 30%;
-      margin-top: 10%;
-      margin-right: 10%;
-      border-color: black;
+    .bookText{
+      height:70%;
+      width: 25%;
+      background-color: #c9dba3;
+      border-color: rgba(0, 0, 0, 0.61);
       border-width: 2px;
       border-style: solid;
       border-radius: 30px;
+    }
+    #leftPage{
+      transform: perspective(300px) rotateY(10deg);
+      z-index: 90;
+      margin-right: 300px;
+      position: absolute;
+      background-color: #c9dba3;
+    }
+    #rightPage{
+      transform: perspective(300px) rotateY(-10deg);
+      z-index: 99;
+      margin-left: 300px;
+    }
+    #innerRightPage{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Lucida Console", "Courier New", monospace;
+      height: 90%;
+      margin-top: 5%;
+      border-style: solid;
+      border-color: #000000;
+      border-width: 1px;
+      background-color: #417c3c6f;
 
+    }
+    #secondRightPage{
+      transform: perspective(300px) rotateY(-10deg);
+      position: absolute;
+      margin-left: 300px;
+      z-index: 98;
+    }
+    @keyframes swipePageToLeft{
+      0% {
+        transform: perspective(300px) rotateY(-10deg);
+        margin-left: 300px;
+        margin-right: 0px;
+      }
+      100%{
+        transform: perspective(300px) rotateY(-170deg);
+        margin-right: 300px;
+        margin-left: 0px;
+      }
+    }
+    @keyframes swipePageToRight{
+      0% {
+        transform: perspective(300px) rotateY(-170deg);
+        margin-right: 300px;
+        margin-left: 0px;
+      }
+      100%{
+        transform: perspective(300px) rotateY(-10deg);
+        margin-left: 300px;
+        margin-right: 0px;
+      }
+    }
+
+    #bookPageP{
+      margin: 15px;
     }
     .button-container {
       display: flex;
@@ -107,15 +166,17 @@
       font-family: "Comic Sans MS", cursive, sans-serif;
       color: rgb(255, 255, 255);
       text-shadow: 4px 4px 8px #000000;
-      width:60%;
+      width:75%;
     }
     #infoPic {
       height: 300px;
       width: 300px;
     }
     #bookPic {
-      height: 600px;
-      width:600px;
+      margin-top: 50px;
+      margin-left: 8px;
+      height: 300px;
+      width:300px;
       border-radius: 20px;
     }
     #homeText {
@@ -151,6 +212,9 @@
         bottom: 5%;
       }
     }
+    #ourBookHeader{
+      
+    }
     /* Navigation links */
     .nav-links {
       position: fixed;
@@ -162,7 +226,7 @@
       display: flex;
       justify-content: center;
       padding: 10px;
-      z-index: 10;
+      z-index: 1000;
       height: 50px;
 
     }
@@ -199,12 +263,10 @@
       color:#fff;
       border-radius: 10px;
     }
-     .h2 {
-      color:#8FBC8B;
-    }
     #cart{
       margin-left: 20px;
     }
+
   </style>
 </head>
 <body id="body">
@@ -232,34 +294,39 @@
       <h2 id="pageDescription"></h2>
       <p id="arrow"><i class="arrow down"></i></p>
     </div>
-    <button id="leftBtn" class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button id="rightBtn"class="w3-button w3-margin w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    <div id="buttons">
+      <button id="leftBtn" class="w3-button w3-display-left" style="position: fixed; top: 50%; transform: translateY(-50%); z-index: 300;" onclick="changePage(-1)">&#10094;</button>
+      <button id="rightBtn" class="w3-button w3-margin w3-display-right" style="position: fixed; top: 50%; transform: translateY(-50%); z-index: 300;" onclick="changePage(1)">&#10095;</button>
+    </div>
   </div>
 
   <div class="section" id="ourbook">
     <div id="ourbook">
-      <h2>Our Book: </h2>
-      <div id='pics'>
-
+      <h1 id="ourBookHeader" style="position: absolute;">Our Book</h1>
+      <div class='bookText' id="leftPage">
         <img id="bookPic" src="https://www.thecuriousreader.in/wp-content/uploads/2018/06/Save-the-enivironment-Feature-imageArtboard-6.png" alt="About Us">
-        <img id="bookPic" src="https://www.treehugger.com/thmb/Y5hxAMhw1g-aYrUytU0pkQu1HSI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/education-concept-book-and-tree-1410019554-5caf8d4cfe47411facf9156a65688ffd.jpg" alt="About Us">
-
       </div>
-      <div id='bookText'>
 
-        <p> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
-
-        <form action="/" method="post">
-          <input type="submit" value="book" name="Add to cart">
-        </form>
-
+      <div class='bookText' id="rightPage">
+        <div id="innerRightPage">
+          <p id="bookPageP"> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
+        </div>
       </div>
+      <div class='bookText' id="secondRightPage">
+        <div id="innerRightPage">
+          <p id="bookPageP"> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
+          <form action="/" method="post">
+            <input type="submit" value="Add to cart" name="addToCart">
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <div class="section" id="about">
     <div id="about">
-      <h2>About Us</h2>
+      <h2 id="aboutUsHead">About Us</h2>
       <p>Our mission is to not only protect our natural world but create a simple and easy way to scale action that mobilizes communities to fight for a sustainable and trash-free future on our planet. What first began as a way to give back to our environment has turned into a gateway into activism for the everyday individual spanning all continents and spectrums of climate justice!</p>
       <img id="infoPic" src="https://scontent.ftlv21-1.fna.fbcdn.net/v/t39.30808-6/441307887_18021693242155879_3513417965928742288_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RpynYjNhjN8Q7kNvgERJv4t&_nc_ht=scontent.ftlv21-1.fna&oh=00_AYCwhNY4vvWmTyaHJ-HGypnOoM4lqG4KEwe8vMYKXhDfeA&oe=66AD33BE" alt="About Us">
     </div>
@@ -297,6 +364,15 @@
       slides[slideIndex-1].style.display = "block";  
     }
 
+    function startSlideshow() {
+      showDivs(slideIndex);
+      setInterval(function() {
+        slideIndex++;
+        showDivs(slideIndex);
+      }, 3000);
+    }
+    startSlideshow();
+
     function goToCart(){
       window.location='/cart';
     }
@@ -316,6 +392,18 @@
   if (response !== "") {
     alert(response);
     setTimeout(deleteResponse, 30000);
+  }
+
+  function changePage(direction){
+    const rightPage = document.getElementById('rightPage');
+    if (direction == 1){
+      rightPage.style.animation = 'swipePageToLeft 2s forwards';
+    }
+    else{
+      rightPage.style.animation = 'swipePageToRight 2s forwards';
+
+    }
+
   }
 
   function deleteResponse() {
