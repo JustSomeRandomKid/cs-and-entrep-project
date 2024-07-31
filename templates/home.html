@@ -258,8 +258,14 @@
       text-shadow: 2px 2px 4px #000000;
 
     }
-    #signin{
+    #signup{
       margin-left: 200px;
+      margin-right: 10px;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+    }
+    #signin{
       background-color: #000000;
       color:#fff;
       border-radius: 10px;
@@ -284,6 +290,8 @@
     <a href="#home" onclick="scrollToSection(event, 'home')">Home</a>
     <a href="#ourbook" onclick="scrollToSection(event, 'ourbook')">Our book</a>
     <a href="#about" onclick="scrollToSection(event, 'about')">About</a>
+
+    <button id="signup"onclick="goToSignUp()">Sign Up</button>
     <button id="signin"onclick="goToSignIn()">Sign In</button>
     <button id="signout"onclick="goToSignOut()">Sign Out</button>
     <img src="https://img.icons8.com/?size=96&id=XGreNGdaSMmM&format=png" height="30px" width="30px" id="cart" onclick="goToCart()">
@@ -351,6 +359,9 @@
       window.location='/signOut';
     }
 
+    function goToSignUp(){
+      window.location='/signUp';
+    }
     var slideIndex = 1;
     showDivs(slideIndex);
 

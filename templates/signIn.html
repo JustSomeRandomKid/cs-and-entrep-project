@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>sign in</title>
-    </head>
-    <body class="body">
-        <form action="/signIn" method="post">
-            <input name="email" type="email" placeholder="Enter email">
-            <input name="password" type="password" placeholder="Enter password">
-            <input name="button" type="submit">
-        </form>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #AFE1AF; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            color: #2b7a2a; 
+            margin-bottom: 20px;
+        }
+        input[type="email"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d1d9e6;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #2b7a2a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]: {
+            background-color: #236624; 
+        }
+        input:: {
+            color: #adb5bd;
+        }
+    </style>
+</head>
+<body>
+    <form action="/signIn" method="post">
+        <h2>Tuesdays for Trash</h2>
+        <input name="email" type="email" placeholder="Enter email" required>
+        <input name="password" type="password" placeholder="Enter password" required>
+        <input name="button" type="submit" value="Sign In">
+    </form>
+</body>
 </html>
