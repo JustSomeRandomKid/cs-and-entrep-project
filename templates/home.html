@@ -31,22 +31,14 @@
     #about {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       width: 100vw;
+      height: 100vh;
       background-color: rgba(17, 146, 75, 0.507);
       padding: 40px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
       position: relative;
     }
-    #about img {
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
+
     #ourbook {
     background-color: rgba(5, 164, 79, 0.231);
     width: 100vw;
@@ -99,7 +91,7 @@
     }
     @keyframes switchBgPic{
       0%{
-        opacity: 0;
+        opacity: 0.5;
       }
       100%{
         opacity: 1;
@@ -179,6 +171,7 @@
     #infoPic {
       height: 300px;
       width: 300px;
+      border-radius: 1000px;
     }
     #bookPic {
       margin-top: 50px;
@@ -261,24 +254,43 @@
     #signup{
       margin-left: 200px;
       margin-right: 10px;
-      background-color: black;
+      background-color: #0dad3d92;
       color: white;
       border-radius: 10px;
     }
     #signin{
-      background-color: #000000;
+      background-color: #09953f92;
       color:#fff;
       border-radius: 10px;
     }
 
     #signout{
+      background-color: #08ba3da9;
       margin-left: 10px;
-      background-color: #03a10b92;
       color:#fff;
       border-radius: 10px;
     }
     #cart{
       margin-left: 20px;
+    }
+    #buyBook{
+      color: rgb(0, 0, 0);
+      background-color: #8ac689;
+      border-radius: 5px;
+      padding: 7x;
+      border: none;
+    }
+    #aboutContent{
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      margin-top: 60px;
+    }
+    #aboutText{
+      margin-top: 50px;
+      margin-left: 50px;
+      font-family: 'Times New Roman', serif;
+      font-size: 26px;
     }
 
   </style>
@@ -301,10 +313,10 @@
   <!-- Sections -->
   <div class="section" id="home">
     <div class="container" id="container">
-      <img class="mySlides" src="">
       <img class="mySlides" src="https://dl.dropbox.com/scl/fi/38jlauya46eoiqccha3hp/Screenshot-2024-07-28-150507.png?rlkey=u58m24p4omu3rxpq1fh5heley&st=3rouxfj4&dl=0">
+      <img class="mySlides" src="https://images.squarespace-cdn.com/content/v1/5edec2e37aa7964d37b2ee66/693d2e0a-d185-4b6b-b034-c2775d496899/3202c39a-eede-4dba-8c66-dd165f1f74ed.JPG?format=1000w">
       <img class="mySlides" src="https://dl.dropbox.com/scl/fi/8kzs9scfg556mzhigg71s/057cbaf4-ee51-40c0-b612-c345a05b4831.jpg?rlkey=ofu2h9qlkjbtc4g1ssy2zdbbl&st=fewo5dme&dl=0">
-      <img class="mySlides" src="">
+      <img class="mySlides" src="https://images.squarespace-cdn.com/content/v1/5edec2e37aa7964d37b2ee66/1596417419964-WDB5PUN1YHHRG3CQJZ1P/IMG_0031.JPG?format=500w">
       <h1 id="name">Tuesdays for Trash</h1>
       <h3 id="homeText">Cleaner ages in 22 pages.</h3>
       <h2 id="pageDescription"></h2>
@@ -320,7 +332,7 @@
     <div id="ourbook">
       <h1 id="ourBookHeader" style="position: absolute; top:2%;">Our Book</h1>
       <div class='bookText' id="leftPage">
-        <img id="bookPic" src="https://www.thecuriousreader.in/wp-content/uploads/2018/06/Save-the-enivironment-Feature-imageArtboard-6.png" alt="About Us">
+        <img id="bookPic" src="https://www.thecuriousreader.in/wp-content/uploads/2018/06/Save-the-enivironment-Feature-imageArtboard-6.png" alt="our book">
       </div>
 
       <div class='bookText' id="rightPage">
@@ -330,9 +342,9 @@
       </div>
       <div class='bookText' id="secondRightPage">
         <div id="innerRightPage">
-          <p id="bookPageP"> Give your child the gift of a brighter future with our engaging book that teaches the importance of a clean environment through fun stories and vibrant illustrations, young readers are introduced to the joys and benefits of helping out and taking responsibility, inspiring them to become passionate guardians of the planet! </p>
+          <img id="secondBookPic" src="https://www.kindermusik.com/mindsonmusic/wp-content/uploads/2010/10/children-globe-istock-2000x1200.jpg" style="width:270px;height:250px;border-radius: 10px;margin-bottom: 20px;"alt="the world">
           <form action="/" method="post">
-            <input type="submit" value="Add to cart" name="addToCart">
+            <input id="buyBook" type="submit" value="Add to cart" name="addToCart">
           </form>
         </div>
       </div>
@@ -341,11 +353,11 @@
   </div>
 
   <div class="section" id="about">
-    <div id="about">
       <h2 id="aboutUsHead">About Us</h2>
-      <p>Our mission is to not only protect our natural world but create a simple and easy way to scale action that mobilizes communities to fight for a sustainable and trash-free future on our planet. What first began as a way to give back to our environment has turned into a gateway into activism for the everyday individual spanning all continents and spectrums of climate justice!</p>
-      <img id="infoPic" src="https://scontent.ftlv21-1.fna.fbcdn.net/v/t39.30808-6/441307887_18021693242155879_3513417965928742288_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RpynYjNhjN8Q7kNvgERJv4t&_nc_ht=scontent.ftlv21-1.fna&oh=00_AYCwhNY4vvWmTyaHJ-HGypnOoM4lqG4KEwe8vMYKXhDfeA&oe=66AD33BE" alt="About Us">
-    </div>
+      <div id="aboutContent">
+        <img id="infoPic" src="https://scontent.ftlv21-1.fna.fbcdn.net/v/t39.30808-6/441307887_18021693242155879_3513417965928742288_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RpynYjNhjN8Q7kNvgERJv4t&_nc_ht=scontent.ftlv21-1.fna&oh=00_AYCwhNY4vvWmTyaHJ-HGypnOoM4lqG4KEwe8vMYKXhDfeA&oe=66AD33BE" alt="About Us">
+        <p id="aboutText">Our mission is to not only protect our natural world but create a simple and easy way to scale action that mobilizes communities to fight for a sustainable and trash-free future on our planet. What first began as a way to give back to our environment has turned into a gateway into activism for the everyday individual spanning all continents and spectrums of climate justice!</p>  
+      </div>
   </div>
 
 
@@ -371,7 +383,7 @@
 
     function showDivs(n) {
       var i;
-      const descriptions = ['first page','second page','third page','forth page'];
+      const descriptions = ['Beach cleaning:)','Our amazing volunteers','Amount of trash collected on Tuesdays','We’re in this together.'];
       var slides = document.getElementsByClassName("mySlides");
       var pageDescription = document.getElementById("pageDescription");
       if (n > slides.length) {slideIndex = 1}
