@@ -369,7 +369,8 @@
         slides[i].style.display = "none";  
       }
       pageDescription.innerHTML=descriptions[slideIndex-1];
-      slides[slideIndex-1].style.display = "block";  
+      slides[slideIndex-1].style.display = "block";
+      slides[slideIndex-1].style.animation='switchBgPic 1s forwards'
     }
 
     function startSlideshow() {
